@@ -1,10 +1,18 @@
-import { Component } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
+import { Router, ActivatedRoute, ParamMap } from '@angular/router';
 
 @Component({
-  selector: 'app-acceuil',
+  selector: 'acceuil',
   templateUrl: './acceuil.component.html',
   styleUrls: ['./acceuil.component.scss']
 })
-export class AcceuilComponent {
+export class AcceuilComponent implements OnInit{
+  constructor(
+    private route: ActivatedRoute) {}
 
+  ngOnInit() {
+    this.route.queryParams.subscribe(params => {
+      this.route = params['acceuil'];
+    });
+  }
 }
