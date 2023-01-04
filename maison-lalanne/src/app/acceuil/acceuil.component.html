@@ -1,18 +1,6 @@
 
 
 <div class="acceuilContainer">
-    <div class="acceuilContainer__navBarre">
-        <img src="../../assets/imgChambre/logo.png" alt="logo">
-        <nav>
-            <ul>
-                <li><a routerLink="/acceuil" routerLinkActive="active" ariaCurrentWhenActive="page">Acceuil</a></li>
-                <li><a routerLink="/chambres" routerLinkActive="active" ariaCurrentWhenActive="page">Chambres</a></li>
-                <li><a routerLink="/decouverte" routerLinkActive="active" ariaCurrentWhenActive="page">Lieux</a></li>
-                <li><a routerLink="/reservation" routerLinkActive="active" ariaCurrentWhenActive="page">Réservation</a></li>
-                <li><a routerLink="/tourisme" routerLinkActive="active" ariaCurrentWhenActive="page">Tourisme</a></li>
-            </ul>
-        </nav>
-    </div>
     <div class="acceuilContainer__content">
         <img src="../../assets/imgChambre/DSC_0224.JPG.jpg" alt="escalier">
     </div>
@@ -54,7 +42,7 @@
         <div class="acceuilContainer__detailChambre__info">
             <h2>La chambre Pissenlits</h2>
             <p>Spacieuse et lumineuse, cette chambre de 60m2 dispose d'une grand salle de bain privée et un petit salon.</p>
-            <button type="button" [routerLink]="'/chambres'">Plus d'infos</button>
+            <button type="button" [routerLink]="'/chambre/all'">Plus d'infos</button>
         </div>
         <div class="acceuilContainer__detailChambre__img">
             <img src="../../assets/imgChambre/20180516_115524.jpg" alt="chambre2">
@@ -62,7 +50,7 @@
         <div class="acceuilContainer__detailChambre__info">
             <h2>La chambre coquelicot</h2>
             <p>Cette chambre de 70m2 se trouve dans une dépendance à l'intérieur de la maison, avec sa salle de bain privée.</p>
-            <button type="button" [routerLink]="'/decouverte'">Plus d'infos</button>
+            <button type="button" [routerLink]="'/chambre/all'">Plus d'infos</button>
         </div>
     </div>
     <div class="acceuilContainer__otherService">
