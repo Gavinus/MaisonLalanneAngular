@@ -1,13 +1,108 @@
-<p>acceuil works!</p>
 
 
-<h1>Maison Lalanne</h1>
-
-<nav>
-  <ul>
-    <li><a routerLink="/acceuil" routerLinkActive="active" ariaCurrentWhenActive="page">Acceuil</a></li>
-    <li><a routerLink="/chambres" routerLinkActive="active" ariaCurrentWhenActive="page">Chambres</a></li>
-  </ul>
-</nav>
-
+<div class="acceuilContainer">
+    <div class="acceuilContainer__navBarre">
+        <img src="../../assets/imgChambre/logo.png" alt="logo">
+        <nav>
+            <ul>
+                <li><a routerLink="/acceuil" routerLinkActive="active" ariaCurrentWhenActive="page">Acceuil</a></li>
+                <li><a routerLink="/chambres" routerLinkActive="active" ariaCurrentWhenActive="page">Chambres</a></li>
+                <li><a routerLink="/decouverte" routerLinkActive="active" ariaCurrentWhenActive="page">Lieux</a></li>
+                <li><a routerLink="/reservation" routerLinkActive="active" ariaCurrentWhenActive="page">Réservation</a></li>
+                <li><a routerLink="/tourisme" routerLinkActive="active" ariaCurrentWhenActive="page">Tourisme</a></li>
+            </ul>
+        </nav>
+    </div>
+    <div class="acceuilContainer__content">
+        <img src="../../assets/imgChambre/DSC_0224.JPG.jpg" alt="escalier">
+    </div>
+    <div class="acceuilContainer__welcome">
+        <h1>Maison Lalanne</h1>
+        <div class="acceuilContainer__welcome__maps">
+            <h2>Bienvenu(e)s dans les Landes</h2>
+            <a href="https://www.google.com/maps/place/Maison+Lalanne/@43.6698764,-0.8494795,15z/data=!4m8!3m7!1s0x0:0xe6fd511bf1d1bc4!5m2!4m1!1i2!8m2!3d43.6698764!4d-0.8494795">
+                <img src="../../assets/imgChambre/googlelogo.png" alt="maps">
+            </a>
+        </div>
+        <div class="acceuilContainer__welcome__line"></div>
+        <div class="acceuilContainer__welcome__littleword">
+            <p>
+                Notre maison est une vieille bâtisse restaurée à Castelnau Chalosse, située au cœur des Landes. C'est un domaine calme ou vous pourrez vous reposer,
+                profiter du grand parc arboré et de la piscine. Nous proposons deux grandes chambres d'hôtes décorées avec soin et raffinement. 
+                Vous pourrez déguster votre petit déjeuner au chant des oiseaux et à la confiture maison. 
+                Un petit salon est mis à votre disposition si vous souhaitez lire ou vous connecter en toute tranquillité. Nous sommes vos hôtes et avons hâte de vous recevoir.
+            </p>
+            <p>
+                Hugues et Véronique
+            </p>
+        </div>
+        <div class="acceuilContainer__welcome__reseauContainer">
+            <button type="button" [routerLink]="'/decouverte'" class="acceuilContainer__welcome__reseauContainer__buttonPlus">En savoir plus</button>
+            <div class="acceuilContainer__welcome__reseauContainer__reseaux">
+                <a href="https://www.facebook.com/maisonLalanne"><img src="../../assets/imgChambre/fb.png" alt="facebook"></a>
+                <a href="https://www.instagram.com/maisonlalanne/?hl=fr"><img src="../../assets/imgChambre/insta.png" alt="instagrame"></a>
+                <a href="https://www.booking.com/searchresults.fr.html?aid=356931&label=metagha-link-localuniversalFR-hotel-3823378_dev-desktop_los-1_bw-15_dow-Friday_defdate-1_room-0_lang-fr_curr-EUR_gstadt-2_rateid-0_aud-0_cid-69_gacid-81150383&sid=26ee723bedf1bcf53fe31bb1d874865c&city=-1416989&expand_sb=1&group_adults=2&group_children=0&highlighted_hotels=3823378&hlrd=no_dates&keep_landing=1&no_rooms=1&redirected=1&source=hotel&srpvid=f8ce5d0ee6a0016e&room1=A,A,;#hotelTmpl">
+                    <img src="../../assets/imgChambre/booking.png" alt="booking">
+                </a>
+            </div>
+        </div>
+    </div>
+    <div class="acceuilContainer__detailChambre">
+        <div class="acceuilContainer__detailChambre__img">
+            <img src="../../assets/imgChambre/chambre 1B.jpg" alt="chambre1">
+        </div>
+        <div class="acceuilContainer__detailChambre__info">
+            <h2>La chambre Pissenlits</h2>
+            <p>Spacieuse et lumineuse, cette chambre de 60m2 dispose d'une grand salle de bain privée et un petit salon.</p>
+            <button type="button" [routerLink]="'/chambres'">Plus d'infos</button>
+        </div>
+        <div class="acceuilContainer__detailChambre__img">
+            <img src="../../assets/imgChambre/20180516_115524.jpg" alt="chambre2">
+        </div>
+        <div class="acceuilContainer__detailChambre__info">
+            <h2>La chambre coquelicot</h2>
+            <p>Cette chambre de 70m2 se trouve dans une dépendance à l'intérieur de la maison, avec sa salle de bain privée.</p>
+            <button type="button" [routerLink]="'/decouverte'">Plus d'infos</button>
+        </div>
+    </div>
+    <div class="acceuilContainer__otherService">
+        <div class="acceuilContainer__otherService__service">
+            <div class="acceuilContainer__otherService__service__info">
+                <h2>Le petit déjeuner</h2>
+                <button type="button" [routerLink]="'/service'">Plus d'infos</button>
+            </div>
+            <div class="acceuilContainer__otherService__service__img">
+                <img src="../../assets/imgChambre/petit dejeuner.jpg" alt="dejeuner">
+            </div>
+            <div class="acceuilContainer__otherService__service__info">
+                <h2>La piscine</h2>
+                <button type="button" [routerLink]="'/service'">Plus d'infos</button>
+            </div>
+            <div class="acceuilContainer__otherService__service__img">
+                <img src="../../assets/imgChambre/IMG-20180601-WA0000.jpg" alt="piscine">
+            </div>
+            <div class="acceuilContainer__otherService__service__info">
+                <h2>Tourisme</h2>
+                <button type="button" [routerLink]="'/service'">Plus d'infos</button>
+            </div> 
+        </div>
+    </div>
+    <div class="acceuilContainer__footer">
+        <div class="acceuilContainer__footer__line"></div>
+        <div class="acceuilContainer__footer__adresse">
+            <h2>Maison Lalanne</h2>
+            <p>576 Route de Dax - 40360  Castelnau-Chalosse</p>
+            <h3>Contactez nous: +33 5 58 55 37 07 / +33 6 85 45 56 36</h3>
+        </div>
+        <div class="acceuilContainer__footer__contact">
+            <a href="https://www.facebook.com/maisonLalanne"><img src="../../assets/imgChambre/fb.png" alt="facebook"></a>
+            <a href="https://www.instagram.com/maisonlalanne/?hl=fr"><img src="../../assets/imgChambre/insta.png" alt="instagrame"></a>
+        </div>
+        <div class="acceuilContainer__footer__ref">
+            <img src="../../assets/imgChambre/logo_chambre-dhotes-reference.jpg" alt="">
+            <a href="https://www.landes-chalosse.com/"><img src="../../assets/imgChambre/logo-landes-chalosses.png" alt=""></a>
+        </div>
+    </div>
+    
+</div>
 <router-outlet></router-outlet>
