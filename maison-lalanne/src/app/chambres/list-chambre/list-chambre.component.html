@@ -1,0 +1,17 @@
+<p>list-chambre works!</p>
+
+<div *ngFor='let chambre of chambres' (click)="selectChambre(chambre)" class="listContainer">
+    <div class="listContainer__chambreContainer">
+      <div class="listContainer__chambreContainer__image">
+        <img [src]="chambre.img">
+      </div>
+      <div class="card-stacked">
+        <div class="card-content">
+            <h3>{{ chambre.name }}</h3>
+            <p><small>{{ chambre.description }}</small></p>
+            <p>{{ chambre.confort }}</p>
+            <h3>{{ chambre.price + chambre.infoPlace }}</h3>
+        </div>
+      </div>
+    </div>
+</div>
