@@ -9,7 +9,7 @@ export const CHAMBRES: Chambre[] = [
         confort: "adadzadazdazda",
         price: 80,
         infoPlace: 2,
-        img: "azzaeazeaearar"
+        img: "url('../../assets/imgChambre/ambiance.jpg')"
     },
     {
         id: 2,

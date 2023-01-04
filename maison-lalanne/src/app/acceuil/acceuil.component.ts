@@ -8,11 +8,15 @@ import { Router, ActivatedRoute, ParamMap } from '@angular/router';
 })
 export class AcceuilComponent implements OnInit{
   constructor(
-    private route: ActivatedRoute) {}
+    private route: ActivatedRoute,
+    private router: Router
+  ) {}
 
   ngOnInit() {
     this.route.queryParams.subscribe(params => {
       this.route = params['acceuil'];
     });
   }
+  
+
 }

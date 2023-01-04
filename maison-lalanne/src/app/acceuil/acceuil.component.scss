@@ -1,0 +1,196 @@
+body{
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+.acceuilContainer{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    width: 100%;
+    &__navBarre{
+        display: flex;
+        justify-content: center;
+        z-index: 0;
+        position: absolute;
+        top: 5%;
+        width: 100%;
+        img{
+            width: 30%;
+        }
+        nav{
+            margin: 35px 0 0 0;
+            width: 50%;
+            ul{
+                display: flex;
+                flex-direction: row;
+                list-style: none;
+                
+                width: 100%;
+                justify-content: space-around;
+                li{
+                    a{
+                        text-decoration: none; 
+                        color: black;   
+                    }
+                }
+            }
+        }
+    }
+
+    &__content{
+        margin-top: 15%;
+        height: 818px;
+        img{
+            height: 100%;
+            width: 100%;
+        }
+    }
+    &__welcome{
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        height: 386px;
+        background-color: #3e6f8f;
+        color: white;
+        &__maps{
+            display: flex;
+            flex-direction: row;
+            img{
+                width: 30px;
+            }
+        }
+        &__line{
+            width: 20px;
+            height: 2px;
+            background-color: white;
+        }
+        &__littleword{
+            width: 75%;
+        }
+        &__reseauContainer{
+            display: flex;
+            justify-content: center;
+            flex-direction: row;
+            width: 100%;
+            margin-bottom: 5%;
+            // &__buttonplus{
+
+            // }
+            &__reseaux{
+                img{
+                    width: 30px;
+                }  
+            }
+        }
+    }
+
+
+    &__detailChambre{
+        display: flex;
+        flex-direction: row;
+        justify-content: center;
+        align-items: center;
+        width: 100%;
+        color: black;
+
+        &__info{
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            width: 50%;
+            h2{
+                color: #3e6f8f;
+            }
+            p{
+                margin: 10% 9%;
+            }
+        }
+        &__img{
+            width: 50%;
+            height: 400px;
+            img{
+                width: 100%;
+                height: 400px;
+            }
+        }
+    }
+
+    &__otherService{
+        width: 100%;
+        height: 600px;
+        background-color: #3e6f8f;
+        display: flex;
+        justify-content: center;
+        &__service{
+            display: flex;
+            flex-direction: row;
+            width: 100%;
+            margin: auto 13%;
+            
+            &__img{
+                    width: 80%;
+                img{
+                    width: 100%;
+                    height: 209px;
+                }
+            }
+            &__info{
+                background-color: #64b5eb;
+                display: flex;
+                flex-direction: column;
+                justify-content: center;
+                align-items: center;
+                width: 75%;
+                height: 209px;
+                h2{
+                    color: white;
+                }
+                p{
+                    margin: 10% 9%;
+                }
+            }
+        }
+    }
+    
+    &__footer{
+        width: 100%;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        flex-direction: column;
+        &__line{
+            width: 80%;
+            height: 1px;
+            margin: 2% 0;
+            background-color: black;
+        }
+        &__adresse{
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            margin-bottom: 30px;
+            h2{
+                margin: 0;
+            }
+        }
+        &__contact{
+            display: flex;
+            flex-direction: row;
+            align-items: center;
+            justify-content: center;
+            img{
+                background-color: black;
+                width: 80px;
+            }
+        }
+
+        &__ref{
+            img{
+                width: 200px;
+            }
+        }
+    }
+}

@@ -8,15 +8,19 @@ import { ChambresComponent } from './chambres/chambres.component';
 import { ReservationComponent } from './reservation/reservation.component';
 import { TourismeComponent } from './tourisme/tourisme.component';
 import { DecouverteComponent } from './decouverte/decouverte.component';
+import { ServiceComponent } from './service/service.component';
+import { NavbarreComponent } from './navbarre/navbarre.component';
 
 @NgModule({
   declarations: [
     AppComponent,
+    NavbarreComponent,
     AcceuilComponent,
     ChambresComponent,
     ReservationComponent,
     TourismeComponent,
-    DecouverteComponent
+    DecouverteComponent,
+    ServiceComponent
   ],
   imports: [
     BrowserModule,
