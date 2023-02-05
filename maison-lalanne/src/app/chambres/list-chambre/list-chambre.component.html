@@ -1,17 +1,48 @@
 <p>list-chambre works!</p>
 
-<div *ngFor='let chambre of chambres' (click)="selectChambre(chambre)" class="listContainer">
-    <div class="listContainer__chambreContainer">
-      <div class="listContainer__chambreContainer__image">
-        <img [src]="chambre.img">
-      </div>
-      <div class="card-stacked">
-        <div class="card-content">
-            <h3>{{ chambre.name }}</h3>
-            <p><small>{{ chambre.description }}</small></p>
-            <p>{{ chambre.confort }}</p>
-            <h3>{{ chambre.price + chambre.infoPlace }}</h3>
+<div class="listContainerChambre">
+  <div class="listContainerChambre__headImageContainer">
+      <img src="../../../assets/imgChambre/chambre 1D.jpg" alt="enteteimg">
+  </div>
+  <div class="listContainerChambre__containerList">
+    <h1>Nos chambres</h1>
+    <div class="listContainerChambre__containerList__line"></div>
+
+    <div class="listContainerChambre__containerList__calendarContainer">
+      <!-- <form *ngIf="reservation" (ngSubmit)="onSubmit()" #reservationForm="ngForm"> -->
+      <form *ngIf="reservations" #reservationForm="ngForm" class="listContainerChambre__containerList__calendarContainer__formContainer">
+        <div class="listContainerChambre__containerList__calendarContainer__formContainer__formDateContainer">
+          <!-- <p>{{ dateIn | date: "dd MMMM yyyy" }}</p> -->
+          <label for="dateIn">Date d'entrée:</label>
+          <input type="date" id="dateIn"
+          [(ngModel)]="reservation.dateIn" name="dateIn" #name="ngModel">
+        </div>
+        <div>
+          <label for="dateOut">Date de sortie:</label>
+          <input type="date" name="dateOut" id="dateOut">
+        </div>
+        <!-- <div class="section center">
+          <button type="submit" class="waves-effect waves-light btn" [disabled]="!reservationForm.form.valid">
+              Valider</button>
+        </div> -->
+      </form>
+    </div>
+
+    <div *ngFor='let chambre of chambres' (click)="selectChambre(chambre)" class="listContainerChambre__containerList__listContainer">
+      <!-- <div *ngFor='let chambre of chambres' class="listContainerChambre__containerList__listContainer">   -->
+      <div class="listContainerChambre__containerList__listContainer__chambreContainer">
+        <div class="listContainerChambre__containerList__listContainer__chambreContainer__image">
+          <img [src]="chambre.img">
+        </div>
+        <div class="listContainerChambre__containerList__listContainer__chambreContainer__detail">
+          <div class="listContainerChambre__containerList__listContainer__chambreContainer__detail__detailContainer">
+              <h3>{{ chambre.name }}</h3>
+              <p><small>{{ chambre.description }}</small></p>
+              <p>{{ chambre.confort }}</p>
+              <h3>{{ chambre.price + chambre.infoPlace }}</h3>
+          </div>
         </div>
       </div>
-    </div>
+    </div> 
+  </div>
 </div>

@@ -27,3 +27,42 @@
         }
     }
 }
+
+.footer{
+    width: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+    &__line{
+        width: 80%;
+        height: 1px;
+        margin: 2% 0;
+        background-color: black;
+    }
+    &__adresse{
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        margin-bottom: 30px;
+        h2{
+            margin: 0;
+        }
+    }
+    &__contact{
+        display: flex;
+        flex-direction: row;
+        align-items: center;
+        justify-content: center;
+        img{
+            background-color: black;
+            width: 80px;
+        }
+    }
+
+    &__ref{
+        img{
+            width: 200px;
+        }
+    }
+}
