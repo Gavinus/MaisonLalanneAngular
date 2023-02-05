@@ -1,0 +1,49 @@
+<p>reservation-form works!</p>
+<form *ngIf="reservation" (ngSubmit)="onSubmit()" #reservationForm="ngForm">
+    <div class="row">
+        <div class="col s8 offset-s2">
+            <div class="card-panel">
+
+                <!-- User name -->
+                <div class="form-group">
+                    <label for="name">Nom</label>
+                    <input type="text" class="form-control" id="name" required pattern="^[a-zA-Z0-9àéèç]{1,25}$"
+                        [(ngModel)]="reservation.name" name="name" #name="ngModel">
+
+                    <div [hidden]="name.valid" class="card-panel red accent-1">
+                        Le nom est requis (1-25).
+                    </div>
+                </div>
+
+                <!-- date d'entrée -->
+                <div class="form-group">
+                    <label for="dateIn">date d'entrée</label>
+                    <input type="number" class="form-control" id="dateIn" required pattern="^[0-9]{1,3}$"
+                        [(ngModel)]="reservation.dateIn" name="dateIn" #dateIn="ngModel">
+                    <div [hidden]="dateIn.valid" class="card-panel red accent-1">
+                        vous devez entrée une date valide
+                    </div>
+                </div>
+
+                <!-- date de sortie -->
+                <div class="form-group">
+                    <label for="dateOut">date d'entrée sortie</label>
+                    <input type="number" class="form-control" id="dateOut" required pattern="^[0-9]{1,2}$"
+                        [(ngModel)]="reservation.dateOut" name="dateOut" #dateOut="ngModel">
+                    <div [hidden]="dateOut.valid" class="card-panel red accent-1">
+                        vous devez entrée une date de sortie
+                    </div>
+                </div>
+
+
+                <!-- Submit button -->
+                <div class="divider"></div>
+                <div class="section center">
+                    <button type="submit" class="waves-effect waves-light btn" [disabled]="!reservationForm.form.valid">
+                        Valider</button>
+                </div>
+            </div>
+        </div>
+    </div>
+</form>
+<h3 *ngIf="!reservation" class="center">Aucune chambre à reserver...</h3>
