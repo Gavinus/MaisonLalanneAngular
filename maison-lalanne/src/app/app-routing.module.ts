@@ -1,4 +1,5 @@
 import { NgModule } from '@angular/core';
+import { FormsModule } from '@angular/forms';
 import { RouterModule, Routes } from '@angular/router';
 import { AcceuilComponent } from './acceuil/acceuil.component';
 import { AuthGuardService } from './auth-guard.service';
@@ -17,6 +18,8 @@ const appRoutes: Routes = [
   {path: 'chambre/all', component: ListChambreComponent},
   {path: 'decouverte', component: DecouverteComponent},
   {path: 'reservation', component: ReservationFormComponent, canActivate: [AuthGuardService]},
+  // {path: 'reservation', component: ReservationFormComponent},
+
   {path: 'login', component: LoginComponent},
   {path: 'service', component: ServiceComponent},
   {path: 'tourisme', component: TourismeComponent},
@@ -25,7 +28,9 @@ const appRoutes: Routes = [
 ];
 
 @NgModule({
-  imports: [RouterModule.forRoot(appRoutes)],
+  imports: [
+  RouterModule.forRoot(appRoutes)
+  ],
   exports: [RouterModule]
 })
 export class AppRoutingModule { }

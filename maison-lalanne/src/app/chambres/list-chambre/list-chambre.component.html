@@ -10,36 +10,38 @@
 
     <div class="listContainerChambre__containerList__calendarContainer">
       <!-- <form *ngIf="reservation" (ngSubmit)="onSubmit()" #reservationForm="ngForm"> -->
-      <form *ngIf="reservations" #reservationForm="ngForm" class="listContainerChambre__containerList__calendarContainer__formContainer">
-        <div class="listContainerChambre__containerList__calendarContainer__formContainer__formDateContainer">
-          <!-- <p>{{ dateIn | date: "dd MMMM yyyy" }}</p> -->
+      <!-- <form *ngIf="reservations" #reservationForm="ngForm" class="listContainerChambre__containerList__calendarContainer__formContainer"> -->
+        <div class="listContainerChambre__containerList__calendarContainer__formContainer">
           <label for="dateIn">Date d'entrée:</label>
-          <input type="date" id="dateIn"
-          [(ngModel)]="reservation.dateIn" name="dateIn" #name="ngModel">
+          <!-- utiliser le ngModel pour recupe la value dateIn dans le component.ts, pour lafficher avec le onClick du submit
+          et le DateInEvent pour set au changement -->
+          <input type="date" id="dateIn" (onChange)="DateInEvent($event)"
+          [(ngModel)]="dateIn" name="dateIn" #name="ngModel">
         </div>
         <div>
           <label for="dateOut">Date de sortie:</label>
-          <input type="date" name="dateOut" id="dateOut">
+          <input type="date" name="dateOut" id="dateOut" 
+          (onChange)="DateOutEvent($event)" [(ngModel)]="dateOut" #name="ngModel">
         </div>
-        <!-- <div class="section center">
-          <button type="submit" class="waves-effect waves-light btn" [disabled]="!reservationForm.form.valid">
+        <div class="section center">
+          <button type="submit" (click)="onClick()" class="waves-effect waves-light btn" >
               Valider</button>
-        </div> -->
-      </form>
+        </div>
+      <!-- </form> -->
     </div>
 
     <div *ngFor='let chambre of chambres' (click)="selectChambre(chambre)" class="listContainerChambre__containerList__listContainer">
       <!-- <div *ngFor='let chambre of chambres' class="listContainerChambre__containerList__listContainer">   -->
       <div class="listContainerChambre__containerList__listContainer__chambreContainer">
         <div class="listContainerChambre__containerList__listContainer__chambreContainer__image">
-          <img [src]="chambre.img">
+          <img src='./assets/imgChambre/Chambre coquelicot.jpg'>
         </div>
         <div class="listContainerChambre__containerList__listContainer__chambreContainer__detail">
           <div class="listContainerChambre__containerList__listContainer__chambreContainer__detail__detailContainer">
               <h3>{{ chambre.name }}</h3>
               <p><small>{{ chambre.description }}</small></p>
-              <p>{{ chambre.confort }}</p>
-              <h3>{{ chambre.price + chambre.infoPlace }}</h3>
+              <p>{{ chambre.service }}</p>
+              <h3>Prix de la chambre: {{ chambre.price }}</h3>
           </div>
         </div>
       </div>

@@ -1,8 +1,8 @@
-import { CHAMBRES } from "./mock-chambres";
+// import { CHAMBRES } from "./mock-chambres";
 
-export class InMemoryDataService implements InMemoryDataService {
-        createDb() {
-                let chambres = CHAMBRES;
-                return { chambres };
-        }
-}
+// export class InMemoryDataService implements InMemoryDataService {
+//         createDb() {
+//                 let chambres = CHAMBRES;
+//                 return { chambres };
+//         }
+// }

@@ -5,6 +5,7 @@ import { ListChambreComponent } from './list-chambre/list-chambre.component';
 import { ChambreRoutingModule } from './chambre-routing.module';
 import { ChambreService } from './chambre.service';
 import { FormsModule } from '@angular/forms';
+import { HttpClientModule } from '@angular/common/http';
 // import { EditChambreComponent } from './edit-chambre/edit-chambre.component';
 
 
@@ -19,6 +20,7 @@ import { FormsModule } from '@angular/forms';
     CommonModule,
     //specifier qu'on veut lancer aussi
     ChambreRoutingModule,
+    HttpClientModule,
     //import pour le form
     FormsModule
   ],

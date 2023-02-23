@@ -1,49 +1,50 @@
 <p>reservation-form works!</p>
-<form *ngIf="reservation" (ngSubmit)="onSubmit()" #reservationForm="ngForm">
-    <div class="row">
-        <div class="col s8 offset-s2">
-            <div class="card-panel">
-
-                <!-- User name -->
-                <div class="form-group">
-                    <label for="name">Nom</label>
-                    <input type="text" class="form-control" id="name" required pattern="^[a-zA-Z0-9àéèç]{1,25}$"
-                        [(ngModel)]="reservation.name" name="name" #name="ngModel">
-
-                    <div [hidden]="name.valid" class="card-panel red accent-1">
-                        Le nom est requis (1-25).
-                    </div>
+<!-- !reservation a inversé aprés les modif !!!!!!!!!!WARING!!!!!!!!! -->
+<form *ngIf="!reservation"  (ngSubmit)="onSubmit()" #reservationForm="ngForm">
+    <div class="reservationContainer">
+        <div  class="reservationContainer__formContainer">
+            <!-- Chambre name -->
+            <div class="reservationContainer__formContainer__formContainerName">
+                <label for="name">Selectionnez votre chambre</label>
+                <select class="form-control" id="name" 
+                #selectedChambre  name="name">
+                    <option *ngFor='let chambre of chambres' [value]="chambre.name">{{chambre.name}}</option>
+                </select>
+                <div [hidden]="name.valid" class="card-panel red accent-1">
+                    Le nom est requis (1-25).
                 </div>
+            </div>
 
-                <!-- date d'entrée -->
-                <div class="form-group">
-                    <label for="dateIn">date d'entrée</label>
-                    <input type="number" class="form-control" id="dateIn" required pattern="^[0-9]{1,3}$"
-                        [(ngModel)]="reservation.dateIn" name="dateIn" #dateIn="ngModel">
-                    <div [hidden]="dateIn.valid" class="card-panel red accent-1">
-                        vous devez entrée une date valide
-                    </div>
+            <!-- date d'entrée -->
+            <div class="reservationContainer__formContainer__formContainerDatein">
+                <label for="dateIn">Date d'entrée:</label>
+                <!-- utiliser le ngModel pour recupe la value dateIn dans le component.ts, pour lafficher avec le onClick du submit
+                et le DateInEvent pour set au changement -->
+                <input type="date" id="dateIn" (onChange)="DateInEvent($event)"
+                [(ngModel)]="dateIn" name="dateIn" #name="ngModel">
+                <div [hidden]="dateIn"  class="card-panel red accent-1">
+                    vous devez entrée une date valide
                 </div>
+            </div>
 
-                <!-- date de sortie -->
-                <div class="form-group">
-                    <label for="dateOut">date d'entrée sortie</label>
-                    <input type="number" class="form-control" id="dateOut" required pattern="^[0-9]{1,2}$"
-                        [(ngModel)]="reservation.dateOut" name="dateOut" #dateOut="ngModel">
-                    <div [hidden]="dateOut.valid" class="card-panel red accent-1">
-                        vous devez entrée une date de sortie
-                    </div>
+            <!-- date de sortie -->
+            <div class="reservationContainer__formContainer__formContainerDateOut">
+                <label for="dateOut">Date de sortie:</label>
+                <input type="date" name="dateOut" id="dateOut" 
+                (onChange)="DateOutEvent($event)" [(ngModel)]="dateOut" #name="ngModel">
+                <div [hidden]="dateOut" class="card-panel red accent-1">
+                    vous devez entrée une date de sortie
                 </div>
+            </div>
 
 
-                <!-- Submit button -->
-                <div class="divider"></div>
-                <div class="section center">
-                    <button type="submit" class="waves-effect waves-light btn" [disabled]="!reservationForm.form.valid">
-                        Valider</button>
-                </div>
+            <!-- Submit button -->
+            <div class="divider"></div>
+            <div class="section center">
+                <button type="submit" (click)="onClick()"  class="waves-effect waves-light btn" [disabled]="!reservationForm.form.valid">
+                    Valider</button>
             </div>
         </div>
     </div>
 </form>
-<h3 *ngIf="!reservation" class="center">Aucune chambre à reserver...</h3>
+<!-- <h3 *ngIf="!reservation" class="center">Aucune chambre à reserver...</h3> -->
