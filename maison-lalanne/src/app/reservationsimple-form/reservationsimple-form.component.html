@@ -1,0 +1,139 @@
+
+<div class="reservationSimpleForm">
+    
+    <div class="reservationSimpleForm__bodyContainer">
+        <div class="reservationSimpleForm__bodyContainer__titleResa">
+            <h1>Reservation:</h1>    
+        </div> 
+        <div class="reservationSimpleForm__bodyContainer__contentForm">
+            <form name="form" (ngSubmit)="reservationsimpleform.form.valid && onSubmit()"
+            #reservationsimpleform="ngForm" novalidate
+            class="reservationSimpleForm__bodyContainer__contentForm__formContainer">
+            
+                <!-- namecontainer -->
+                <div class="reservationSimpleForm__bodyContainer__contentForm__formContainer__form">
+                    <label for="name">Prénom:</label>
+                    <input type="text" id="name" [(ngModel)]="form.name" name="name" #name required [ngClass]="{ 'is-invalid': reservationsimpleform.submitted && 'name invalid' }">
+                    <div *ngIf="'name invalid' && reservationsimpleform.submitted" class="reservationSimpleForm__bodyContainer__contentForm__formContainer__form__formInput">
+                        name is required!
+                    </div>
+                </div>
+                <!-- lastnamecontainer -->
+                <div class="reservationSimpleForm__bodyContainer__contentForm__formContainer__form">
+                    <label for="lastname">Nom:</label>
+                    <input type="text" id="lastname" [(ngModel)]="form.lastname" #lastname="ngModel" name="lastname" required minlength="3" [ngClass]="{ 'is-invalid': reservationsimpleform.submitted && 'lastname.errors' }">
+                    <div *ngIf="lastname.errors && reservationsimpleform.submitted" class="reservationSimpleForm__bodyContainer__contentForm__formContainer__form__formInput">
+                        <div *ngIf="lastname.errors['required']">lastname is required</div>
+                        <div *ngIf="lastname.errors['minlength']">
+                            lastname must be at least 3 characters
+                        </div>
+                    </div>
+                </div>
+                <!-- emailcontainer -->
+                <div class="reservationSimpleForm__bodyContainer__contentForm__formContainer__form">
+                    <label for="email">Email:</label>
+                    <input type="email" id="email" [(ngModel)]="form.email" name="email" #email required [ngClass]="{ 'is-invalid': reservationsimpleform.submitted && 'email invalid' }">
+                    <div *ngIf="'email invalid' && reservationsimpleform.submitted" class="reservationSimpleForm__bodyContainer__contentForm__formContainer__form__formInput">
+                        email is required!
+                    </div>
+                </div>
+                <!-- phonenumbercontainer -->
+                <div class="reservationSimpleForm__bodyContainer__contentForm__formContainer__form">
+                    <label for="phonenumber">Telephone:</label>
+                    <input type="text" id="phonenumber" [(ngModel)]="form.phonenumber" name="phonenumber" #phonenumber="ngModel" required minlength="10" maxlength="10" [ngClass]="{ 'is-invalid': reservationsimpleform.submitted && 'phonenumber invalid' }">
+                    <div *ngIf="'phonenumber invalid' && reservationsimpleform.submitted" class="reservationSimpleForm__bodyContainer__contentForm__formContainer__form__formInput">
+                        phonenumber is required!
+                    </div>
+                    <!-- <div *ngIf="form.phonenumber.errors['minlength']">
+                        lastname must be at least 10 characters
+                    </div>
+                    <div *ngIf="form.phonenumber.errors['maxlength']">
+                        lastname must be at least 10 characters
+                    </div> -->
+                </div>
+                <!-- addressnumbercontainer -->
+                <div class="reservationSimpleForm__bodyContainer__contentForm__formContainer__form">
+                    <label for="addressnumber">Numéro de rue:</label>
+                    <input type="number" id="addressnumber" [(ngModel)]="form.addressnumber" #addressnumber="ngModel" name="addressnumber" required [ngClass]="{ 'is-invalid': reservationsimpleform.submitted && 'addressnumber.errors' }">
+                    <div *ngIf="addressnumber.errors && reservationsimpleform.submitted" class="reservationSimpleForm__bodyContainer__contentForm__formContainer__form__formInput">
+                        <div *ngIf="addressnumber.errors['required']">addressnumber is required</div>
+                    </div>
+                </div>
+                <!-- addresscontainer -->
+                <div class="reservationSimpleForm__bodyContainer__contentForm__formContainer__form">
+                    <label for="address">Adresse:</label>
+                    <input type="text" id="address" [(ngModel)]="form.address" #address="ngModel" name="address" required [ngClass]="{ 'is-invalid': reservationsimpleform.submitted && 'address.errors' }">
+                    <div *ngIf="address.errors && reservationsimpleform.submitted" class="reservationSimpleForm__bodyContainer__contentForm__formContainer__form__formInput">
+                        <div *ngIf="address.errors['required']">address is required</div>
+                    </div>
+                </div>
+                <!-- postalcodecontainer -->
+                <div class="reservationSimpleForm__bodyContainer__contentForm__formContainer__form">
+                    <label for="postalcode">Code Postal:</label>
+                    <input type="number" id="postalcode" [(ngModel)]="form.postalcode" #postalcode="ngModel" name="postalcode" required [ngClass]="{ 'is-invalid': reservationsimpleform.submitted && 'postalcode.errors' }">
+                    <div *ngIf="postalcode.errors && reservationsimpleform.submitted" class="reservationSimpleForm__bodyContainer__contentForm__formContainer__form__formInput">
+                        <div *ngIf="postalcode.errors['required']">postalcode is required</div>
+                    </div>
+                </div>
+                <!-- citycontainer -->
+                <div class="reservationSimpleForm__bodyContainer__contentForm__formContainer__form">
+                    <label for="city">Ville:</label>
+                    <input type="text" id="city" [(ngModel)]="form.city" #city="ngModel" name="city" required [ngClass]="{ 'is-invalid': reservationsimpleform.submitted && 'city.errors' }">
+                    <div *ngIf="city.errors && reservationsimpleform.submitted" class="reservationSimpleForm__bodyContainer__contentForm__formContainer__form__formInput">
+                        <div *ngIf="city.errors['required']">city is required</div>
+                    </div>
+                </div>
+                <!-- Chambre name -->
+                <div class="reservationSimpleForm__bodyContainer__contentForm__formContainer__form">
+                    <label for="bedrooms">Selectionnez votre chambre:</label>
+                    <select 
+                    id="bedrooms"
+                    (change)="onBedroomSelected()"
+                    name="bedroom"
+                    [(ngModel)]="form.bedroom"
+                    required>
+                        <option [value]="" > Selectionner une chambre</option>
+                        <!-- <option *ngFor="let bedroom of bedrooms" [value]="bedroom.id">{{bedroom.name}}</option> -->
+                        <option *ngFor='let chambre of chambres' [value]="chambre.name">{{chambre.name}}</option>
+                    </select>
+                </div>
+                <!-- dateIncontainer -->
+                <div class="reservationSimpleForm__bodyContainer__contentForm__formContainer__form">
+                    <label for="datein">Date d'entrée du séjour:</label>
+                    <!-- utiliser le ngModel pour recupe la value dateIn dans le component.ts, pour lafficher avec le onClick du submit
+                    et le DateInEvent pour set au changement -->
+                    <input type="date" id="datein"
+                    [(ngModel)]="form.datein" name="datein" >
+                    <!-- <div [hidden]="form.datein.valid" class="reservationSimpleForm__bodyContainer__formContainer__form__formInput">
+                        vous devez entrer une date d'entrée
+                    </div> -->
+                </div>
+                <!-- dateOutcontainer -->
+                <div class="reservationSimpleForm__bodyContainer__contentForm__formContainer__form">
+                    <label for="dateout">Date de sortie du séjour:</label>
+                    <input type="date" name="dateout" id="dateout" 
+                    [(ngModel)]="form.dateout" >
+                    <!-- <div [hidden]="form.dateout.valid" class="reservationSimpleForm__bodyContainer__formContainer__form__formInput">
+                        vous devez entrer une date de sortie
+                    </div> -->
+                </div>
+                <!-- Submit button -->
+                    <div class="divider"></div>
+                    <div class="reservationSimpleForm__bodyContainer__contentForm__form">
+                    <button type="submit" (click)="onSubmit()"  class="waves-effect waves-light btn" [disabled]="!reservationsimpleform.form.valid">
+                    Valider</button>
+                </div>
+            </form>
+            <div class="reservationSimpleForm__bodyContainer__contentForm__imgbedroomContainer">
+                <div class="reservationSimpleForm__bodyContainer__contentForm__imgbedroomContainer__bedroom">
+                    <img src="./assets/imgChambre/Chambre coquelicot.jpg" alt="coquelicot">
+                    <button type="button" [routerLink]="'/chambre/all'">Detail chambre Coquelicot</button>
+                </div>  
+                <div class="reservationSimpleForm__bodyContainer__contentForm__imgbedroomContainer__bedroom">
+                    <img src="./assets/imgChambre/chambre 1C.jpg" alt="coquelicot">
+                    <button type="button" [routerLink]="'/chambre/all'">Detail chambre pissenlit</button>
+                </div> 
+            </div>
+        </div>
+    </div>
+</div>

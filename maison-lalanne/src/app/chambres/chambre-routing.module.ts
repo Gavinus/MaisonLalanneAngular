@@ -1,4 +1,5 @@
 import { NgModule } from "@angular/core";
+import { FormsModule } from "@angular/forms";
 import { RouterModule, Routes } from "@angular/router";
 import { ChambresComponent } from "./chambres.component";
 import { ListChambreComponent } from "./list-chambre/list-chambre.component";
@@ -18,7 +19,8 @@ const appRoutes: Routes = [
 
 @NgModule({
     imports: [
-        RouterModule.forChild(appRoutes)
+        RouterModule.forChild(appRoutes),
+        FormsModule
     ],
     exports: [
         RouterModule

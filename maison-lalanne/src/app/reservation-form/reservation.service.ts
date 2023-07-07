@@ -7,6 +7,7 @@ import { Reservation } from "./reservation";
 export class ReservationService {
 
     private reservationUrl = 'api/reservation';
+    private urlAddReservation = 'http://localhost:8080/reservation';
 
     constructor(private http: HttpClient) {}
 
@@ -21,6 +22,12 @@ export class ReservationService {
     }   
 
 
+    postUserReservation(reservation: Reservation) : Observable<boolean> {
+      console.log(this.urlAddReservation + '/addreservation');
+      return this.http.post<boolean>(this.urlAddReservation + '/addreservation/', reservation);
+    }
+    
+    
     postReservationUser(reservation: Reservation) : Observable<Reservation> {
 
         const httpOptions = {

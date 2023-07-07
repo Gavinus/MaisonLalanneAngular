@@ -3,24 +3,39 @@ import { Injectable } from "@angular/core";
 import { Observable } from "rxjs";
 import { Chambre } from "./chambre";
 
-@Injectable()
+@Injectable({providedIn: 'root'})
 export class ChambreService {
 
     private chambreUrl = 'api/chambres';
+    private urlchambre = 'http://localhost:8080/bedroom';
 
     constructor(private http: HttpClient) {}
 
-    getChambres() : Observable<Chambre[]> {
-       return this.http.get<Chambre[]>(this.chambreUrl);
+    //appel RESTAPI JAVA   
+    getBedrooms() : Observable<Chambre[]> {
+        console.log(this.urlchambre + "/allbedroom");
+        return this.http.get<Chambre[]>(this.urlchambre + "/allbedroom");
+     }
+
+    getBedroomsById(id: number) : Observable<Chambre> {
+        const url = `${this.urlchambre}/${id}`;
+        return this.http.get<Chambre>(url);
     }
 
-    getChambreById(id: number) : Observable<Chambre> {
+    
+
+
+  //getChambres() : Observable<Chambre[]> {
+    //    return this.http.get<Chambre[]>(this.chambreUrl);
+    // }
+
+//  getChambreById(id: number) : Observable<Chambre> {
+    //     console.log(this.urlchambre);
+    //     const url = `${this.chambreUrl}/${id}`;
         
-        const url = `${this.chambreUrl}/${id}`;
-        return this.http.get<Chambre>(url);
-    }   
-
-
+    //     return this.http.get<Chambre>(url);
+    // }  
+    
     updateChambre(chambre: Chambre) : Observable<Chambre> {
 
         const httpOptions = {

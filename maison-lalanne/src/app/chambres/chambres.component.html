@@ -1,29 +1,17 @@
-<div class="navBarre">
-    <img src="../../assets/imgChambre/logo.png" alt="logo">
-    <nav>
-        <ul>
-            <li><a routerLink="/acceuil" routerLinkActive="active" ariaCurrentWhenActive="page">Acceuil</a></li>
-            <li><a routerLink="/chambre/all" routerLinkActive="active" ariaCurrentWhenActive="page">Chambres</a></li>
-            <li><a routerLink="/decouverte" routerLinkActive="active" ariaCurrentWhenActive="page">Lieux</a></li>
-            <li><a routerLink="/reservation" routerLinkActive="active" ariaCurrentWhenActive="page">Réservation</a></li>
-            <li><a routerLink="/tourisme" routerLinkActive="active" ariaCurrentWhenActive="page">Tourisme</a></li>
-        </ul>
-    </nav>
-</div>
 
 <p>list-chambre works!</p>
 
 <div *ngIf='chambre' class="detailChambreContainer">
     <div class="detailChambreContainer__chambreContainer">
       <div class="detailChambreContainer__chambreContainer__image">
-        <img [src]="chambre.img">
+        <img src="./assets/imgChambre/Chambre coquelicot.jpg" alt="coquelicot">
       </div>
       <div class="card-stacked">
         <div class="card-content">
             <h3>{{ chambre.name }}</h3>
             <p><small>{{ chambre.description }}</small></p>
-            <p>{{ chambre.confort }}</p>
-            <h3>{{ chambre.price + chambre.infoPlace }}</h3>
+            <p>{{ chambre.service }}</p>
+            <h3>Prix de la chambre: {{chambre.price}}</h3>
         </div>
       </div>
     </div>
