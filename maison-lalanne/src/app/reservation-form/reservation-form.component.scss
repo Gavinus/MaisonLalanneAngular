@@ -1,0 +1,13 @@
+.reservationContainer{
+    width: 100%;
+    height: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    &__formContainer{
+        margin-top: 40%;
+        &__formContainerDatein{
+            margin-top: 6%;
+        }
+    }
+}

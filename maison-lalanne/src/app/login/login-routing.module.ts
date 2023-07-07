@@ -13,7 +13,7 @@ import { LoginComponent } from "./login.component";
       RouterModule
     ],
     providers: [
-      AuthService
+      AuthService,
     ]
   })
   export class LoginRoutingModule {}

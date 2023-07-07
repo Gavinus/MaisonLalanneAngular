@@ -20,7 +20,7 @@ export class ChambresComponent implements OnInit{
   ngOnInit() {
     let id = +this.route.snapshot.paramMap.get("id");
 
-    this._chambreService.getChambreById(id).subscribe(data => {
+    this._chambreService.getBedroomsById(id).subscribe(data => {
         this.chambre = data;
       });
   }

@@ -2,8 +2,8 @@ export class Chambre {
     id: number;
     name: string;
     description: string;
-    confort: Array<string>;
+    service: string;
     price: number;
-    infoPlace: number;
-    img: string;
+    // infoPlace: number;
+    // img: string;
 }
