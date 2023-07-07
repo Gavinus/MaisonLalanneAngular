@@ -13,6 +13,7 @@ import { HttpClientModule } from '@angular/common/http';
   declarations: [
     ListChambreComponent,
     ChambresComponent,
+
     // EditChambreComponent,
   ],
   imports: [

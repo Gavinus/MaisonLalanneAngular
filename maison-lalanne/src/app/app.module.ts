@@ -7,7 +7,7 @@ import { TourismeComponent } from './tourisme/tourisme.component';
 import { DecouverteComponent } from './decouverte/decouverte.component';
 import { ServiceComponent } from './service/service.component';
 import { HttpClientModule } from '@angular/common/http';
-import { HttpClientInMemoryWebApiModule } from 'angular-in-memory-web-api';
+// import { HttpClientInMemoryWebApiModule } from 'angular-in-memory-web-api';
 // import { InMemoryDataService } from './chambres/in-memory-data-chambre.service';
 import { ChambreModule } from './chambres/chambre.module';
 import { PageNotFoundComponent } from './page-not-found/page-not-found.component';
@@ -19,6 +19,10 @@ import { AuthGuardService } from './auth-guard.service';
 import { AuthService } from './auth.service';
 import { InscriptionFormComponent } from './inscription-form/inscription-form.component';
 import { LoginRoutingModule } from './login/login-routing.module';
+import { httpInterceptorProviders } from './helper/http.interceptor';
+import { MatchPasswordDirective } from './login/directives/match-password.directive';
+import { DateInputConverter } from './login/directives/date-input.directive';
+import { ReservationsimpleFormComponent } from './reservationsimple-form/reservationsimple-form.component';
 
 @NgModule({
   declarations: [
@@ -28,9 +32,13 @@ import { LoginRoutingModule } from './login/login-routing.module';
     DecouverteComponent,
     ServiceComponent,
     PageNotFoundComponent,
+    ReservationsimpleFormComponent,
     ReservationFormComponent,
+    DateInputConverter,
     LoginComponent,
     InscriptionFormComponent,
+    MatchPasswordDirective,
+    
   ],
   imports: [
     BrowserModule,
@@ -46,7 +54,11 @@ import { LoginRoutingModule } from './login/login-routing.module';
   ],
   providers: [
     ReservationService,
+    
     AuthGuardService,
+    //testlogin
+    httpInterceptorProviders,
+
     AuthService
   ],
   bootstrap: [AppComponent]

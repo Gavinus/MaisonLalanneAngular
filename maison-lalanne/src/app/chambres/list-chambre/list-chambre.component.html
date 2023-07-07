@@ -8,14 +8,14 @@
     <h1>Nos chambres</h1>
     <div class="listContainerChambre__containerList__line"></div>
 
-    <div class="listContainerChambre__containerList__calendarContainer">
+    <!-- <div class="listContainerChambre__containerList__calendarContainer"> -->
       <!-- <form *ngIf="reservation" (ngSubmit)="onSubmit()" #reservationForm="ngForm"> -->
       <!-- <form *ngIf="reservations" #reservationForm="ngForm" class="listContainerChambre__containerList__calendarContainer__formContainer"> -->
-        <div class="listContainerChambre__containerList__calendarContainer__formContainer">
-          <label for="dateIn">Date d'entrée:</label>
+        <!-- <div class="listContainerChambre__containerList__calendarContainer__formContainer">
+          <label for="dateIn">Date d'entrée:</label> -->
           <!-- utiliser le ngModel pour recupe la value dateIn dans le component.ts, pour lafficher avec le onClick du submit
           et le DateInEvent pour set au changement -->
-          <input type="date" id="dateIn" (onChange)="DateInEvent($event)"
+          <!-- <input type="date" id="dateIn" (onChange)="DateInEvent($event)"
           [(ngModel)]="dateIn" name="dateIn" #name="ngModel">
         </div>
         <div>
@@ -26,9 +26,9 @@
         <div class="section center">
           <button type="submit" (click)="onClick()" class="waves-effect waves-light btn" >
               Valider</button>
-        </div>
+        </div> -->
       <!-- </form> -->
-    </div>
+    <!-- </div> -->
 
     <div *ngFor='let chambre of chambres' (click)="selectChambre(chambre)" class="listContainerChambre__containerList__listContainer">
       <!-- <div *ngFor='let chambre of chambres' class="listContainerChambre__containerList__listContainer">   -->

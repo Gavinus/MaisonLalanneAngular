@@ -1,50 +1,61 @@
 <p>reservation-form works!</p>
 <!-- !reservation a inversé aprés les modif !!!!!!!!!!WARING!!!!!!!!! -->
-<form *ngIf="!reservation"  (ngSubmit)="onSubmit()" #reservationForm="ngForm">
-    <div class="reservationContainer">
-        <div  class="reservationContainer__formContainer">
-            <!-- Chambre name -->
-            <div class="reservationContainer__formContainer__formContainerName">
-                <label for="name">Selectionnez votre chambre</label>
-                <select class="form-control" id="name" 
-                #selectedChambre  name="name">
-                    <option *ngFor='let chambre of chambres' [value]="chambre.name">{{chambre.name}}</option>
-                </select>
-                <div [hidden]="name.valid" class="card-panel red accent-1">
-                    Le nom est requis (1-25).
+<div>
+    <form name="form"
+        (ngSubmit)="onSubmit()"
+        #reservationForm="ngForm"
+        >
+        <div class="reservationContainer">
+            <div  class="reservationContainer__formContainer">
+                <!-- Chambre name -->
+                <div class="reservationContainer__formContainer__formContainerName">
+                    <label for="nameBedroom">Selectionnez votre chambre</label>
+                    <select 
+                    class="form-control"
+                    name="nameBedroom"
+                    [(ngModel)]="selectedBedroom"
+                    required
+                    #nameBedroom="ngModel"
+                    [ngClass]="{ 'is-invalid': reservationForm.submitted && nameBedroom.errors }"
+                    >
+                        <option *ngFor='let chambre of chambres' [value]="chambre.id">{{chambre.name}}</option>
+                    </select>
+                    <div [hidden]="nameBedroom.valid" class="card-panel red accent-1">
+                        Le nom est requis (1-25).
+                    </div>
                 </div>
-            </div>
 
-            <!-- date d'entrée -->
-            <div class="reservationContainer__formContainer__formContainerDatein">
-                <label for="dateIn">Date d'entrée:</label>
-                <!-- utiliser le ngModel pour recupe la value dateIn dans le component.ts, pour lafficher avec le onClick du submit
-                et le DateInEvent pour set au changement -->
-                <input type="date" id="dateIn" (onChange)="DateInEvent($event)"
-                [(ngModel)]="dateIn" name="dateIn" #name="ngModel">
-                <div [hidden]="dateIn"  class="card-panel red accent-1">
-                    vous devez entrée une date valide
+                <!-- date d'entrée -->
+                <div class="reservationContainer__formContainer__formContainerDatein">
+                    <label for="dateIn">Date d'entrée:</label>
+                    <!-- utiliser le ngModel pour recupe la value dateIn dans le component.ts, pour lafficher avec le onClick du submit
+                    et le DateInEvent pour set au changement -->
+                    <input type="date" id="dateIn" 
+                    [(ngModel)]="dateIn" name="dateIn" >
+                    <div [hidden]="dateIn"  class="card-panel red accent-1">
+                        vous devez entrée une date valide
+                    </div>
                 </div>
-            </div>
 
-            <!-- date de sortie -->
-            <div class="reservationContainer__formContainer__formContainerDateOut">
-                <label for="dateOut">Date de sortie:</label>
-                <input type="date" name="dateOut" id="dateOut" 
-                (onChange)="DateOutEvent($event)" [(ngModel)]="dateOut" #name="ngModel">
-                <div [hidden]="dateOut" class="card-panel red accent-1">
-                    vous devez entrée une date de sortie
+                <!-- date de sortie -->
+                <div class="reservationContainer__formContainer__formContainerDateOut">
+                    <label for="dateOut">Date de sortie:</label>
+                    <input type="date" name="dateOut" id="dateOut" 
+                     [(ngModel)]="dateOut" >
+                    <div [hidden]="dateOut" class="card-panel red accent-1">
+                        vous devez entrée une date de sortie
+                    </div>
                 </div>
-            </div>
 
 
-            <!-- Submit button -->
-            <div class="divider"></div>
-            <div class="section center">
-                <button type="submit" (click)="onClick()"  class="waves-effect waves-light btn" [disabled]="!reservationForm.form.valid">
-                    Valider</button>
+                <!-- Submit button -->
+                <div class="divider"></div>
+                <div class="section center">
+                    <button type="submit" (click)="onClick()"  class="waves-effect waves-light btn" [disabled]="!reservationForm.form.valid">
+                        Valider</button>
+                </div>
             </div>
         </div>
-    </div>
-</form>
+    </form>
+</div>
 <!-- <h3 *ngIf="!reservation" class="center">Aucune chambre à reserver...</h3> -->

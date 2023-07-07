@@ -1,8 +1,11 @@
+import { DatePipe } from "@angular/common";
+
 export class Reservation {
-    id: number;
+   // id: number;
     dateIn: Date;
     dateOut: Date;
-    nbDays: number;
-    created: Date;
-    name: String;
+//nbDays: number;
+  //  datecreate: Date;
+    idbedroom: number;
+    iduser: number;
 }

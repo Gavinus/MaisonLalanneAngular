@@ -5,23 +5,33 @@
         <div class="loginContainer__loginContainerPage__loginPage">
             <div class="loginContainer__loginContainerPage__loginPage__connexionTitle">
                 <span class="card-title">Veuillez vous connecter</span>
-                <p><em>{{message}}</em></p>
+                <!-- <p><em>{{message}}</em></p> -->
             </div>
-            <form #loginForm="ngForm" class="loginContainer__loginContainerPage__loginPage__formContainer">
+            <form *ngIf="!isLoggedIn" name="form" (ngSubmit)="loginForm.form.valid && onSubmit()" #loginForm="ngForm" novalidate class="loginContainer__loginContainerPage__loginPage__formContainer">
                 <div class="loginContainer__loginContainerPage__loginPage__formContainer__inputOne">
                     <label for="email">email:</label>
-                    <input type="email" id="email" [(ngModel)]="email" name="email" required>
+                    <input type="email" id="email" [(ngModel)]="form.email" name="email" #email required [ngClass]="{ 'is-invalid': loginForm.submitted && 'email invalid' }">
+                    <div *ngIf="'email invalid' && loginForm.submitted" class="invalid-feedback">
+                        email is required!
+                    </div>
                 </div>
                 <div class="loginContainer__loginContainerPage__loginPage__formContainer__inputTwo">
                     <label for="password">Password:</label>
-                    <input type="password" id="password" [(ngModel)]="password" name="password" required>
+                    <input type="password" id="password" [(ngModel)]="form.password" #password="ngModel" name="password" required minlength="6" [ngClass]="{ 'is-invalid': loginForm.submitted && 'password.errors' }">
+                    <div *ngIf="password.errors && loginForm.submitted" class="invalid-feedback">
+                    <div *ngIf="password.errors['required']">Password is required</div>
+                    <div *ngIf="password.errors['minlength']">
+                        Password must be at least 6 characters
+                    </div>
+                </div>
                 </div>
             </form>
             <div class="loginContainer__loginContainerPage__loginPage__connection">
-                <a (click)="login()" class="waves-effect waves-light btn" *ngIf="!authService.isLoggedIn">Se
-                    connecter</a>
-                <a (click)="login()" class="waves-effect waves-light btn" *ngIf="!authService.isLoggedIn">S'inscrire</a>
-                <a (click)="logout()" *ngIf="authService.isLoggedIn">Se déconnecter</a>
+                <a (click)="onSubmit()" class="waves-effect waves-light btn" *ngIf="!authService.isLoggedIn">Se
+                <!-- <button (click)="onSubmit()" class="waves-effect waves-light btn" *ngIf="!authService.isLoggedIn">-->
+                  connecter</a>
+                <!-- <a (click)="login()" class="waves-effect waves-light btn" *ngIf="!authService.isLoggedIn">S'inscrire</a> -->
+                <!-- <a (click)="logout()" *ngIf="authService.isLoggedIn">Se déconnecter</a> -->
             </div>
         </div>
     </div>

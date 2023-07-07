@@ -1,0 +1,77 @@
+.reservationSimpleForm{
+    width: 90%;
+    height: 100%;
+    margin: auto;
+    background-color: rgba(62,111,143,1);
+    &__bodyContainer{
+        &__titleResa{
+            margin: 20% 0 0 5%;
+            h1{
+                color: white;
+                padding: 15% 0 0 5%;
+            }
+        }
+        &__contentForm{
+        display: flex;
+        justify-content: space-around;
+        align-items: center;
+        &__imgbedroomContainer{
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            flex-direction: column;
+            width: 45%;
+            margin: auto;
+            img{
+                width: 100%;
+                padding-top: 3%;
+                height: 325px;
+                border-radius: 2%;
+            }
+            button{
+                margin: 2% 0 2% 0;
+
+            }
+            &__bedroom{
+                margin: 0% 0 10% 0;
+                padding: 0 3%;
+                border: solid 1px white;
+                border-radius: 2%;
+            }
+        }
+        &__formContainer{
+            gap: 3%;
+            background-color: rgba(62,111,143,1);
+            color: white;
+            border-radius: 5px;
+            border: 1px solid white;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            margin: 5% 0 5% 3%;
+            padding: 2%;
+            height: 600px;
+            width: 45%;
+            &__form{
+                width: 75%;
+                height: 100%;
+                display: flex;
+                justify-content: space-between;
+                align-items: center;
+                flex-direction: row;
+                label{
+                    font-family: "damion", cursive;
+                }
+            }
+            &__formInput{
+                margin: 4% 0;
+                display: flex;
+                justify-content: space-around;
+                width: 60%;
+            }
+        } 
+        }
+        
+    }
+}

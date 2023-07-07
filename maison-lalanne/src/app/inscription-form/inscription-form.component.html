@@ -1,1 +1,160 @@
 <p>inscription-form works!</p>
+
+<div class="inscriptionContainer">
+    <div class="inscriptionContainer__backContainer"></div>
+    <form
+    name="form"
+    #inscript="ngForm"
+    novalidate
+    [appMatchPassword]="['password', 'confirmPassword']"
+    (ngSubmit)="inscript.form.valid && onSubmit()" class="inscriptionContainer__formContainer">
+      <div>
+        <h1>Inscription</h1>
+        <h2>Il vous faut vous inscrire pour pouvoir reserver une chambre</h2>
+      </div>  
+    <div class="inscriptionContainer__formContainer__form">
+            <label for="name">Name :</label>
+            <input
+            type="text"
+            class="inscriptionContainer__formContainer__form__formInput"
+            name="name"
+            [(ngModel)]="form.name"
+            required
+            pattern="^[a-zA-Z0-9àéèç]{1,25}$"
+            #name="ngModel"
+            [ngClass]="{ 'is-invalid': inscript.submitted && name.errors }"
+            />
+            <div *ngIf="inscript.submitted && name.errors" class="inscriptionContainer__formContainer__form__invalid">
+            <div *ngIf="name.errors['required']">
+                name is required 
+            </div>
+            </div>
+        </div>
+
+        <div class="inscriptionContainer__formContainer__form">
+            <label for="firstname">Firstname :</label>
+            <input
+            type="text"
+            class="form-control"
+            name="firstname"
+            [(ngModel)]="form.firstname"
+            required
+            pattern="^[a-zA-Z0-9àéèç]{1,25}$"
+            minlength="2"
+            maxlength="10"
+            #firstname="ngModel"
+            [ngClass]="{ 'is-invalid': inscript.submitted && firstname.errors }"
+            />
+            <div *ngIf="inscript.submitted && firstname.errors" class="invalid-feedback">
+            <div *ngIf="firstname.errors['required']">firstname is required</div>
+            <div *ngIf="firstname.errors['minlength']">
+                firstname must be at least 2 characters
+            </div>
+            <div *ngIf="firstname.errors['maxlength']">
+                firstname must be at most 10 characters
+            </div>
+            </div>
+        </div>
+
+        <div class="inscriptionContainer__formContainer__form">
+            <label>Email :</label>
+            <input
+            type="email"
+            class="form-control"
+            name="email"
+            [(ngModel)]="form.email"
+            required
+            #email="ngModel"
+            [ngClass]="{ 'is-invalid': inscript.submitted && email.errors }"
+            />
+            <div *ngIf="inscript.submitted && email.errors" class="invalid-feedback">
+                <div *ngIf="email.errors['required']">Email is required</div>
+                <div *ngIf="email.errors['email']">Email is invalid</div>
+            </div>
+        </div>
+
+        <div class="inscriptionContainer__formContainer__form">
+            <label>Phone :</label>
+            <input
+            type="phonenumber"
+            class="form-control"
+            name="phonenumber"
+            minlength="10"
+            maxlength="12"
+            [(ngModel)]="form.phonenumber"
+            required
+            #phonenumber="ngModel"
+            [ngClass]="{ 'is-invalid': inscript.submitted && phonenumber.errors }"
+            />
+            <div *ngIf="inscript.submitted && phonenumber.errors" class="invalid-feedback">
+                <div *ngIf="phonenumber.errors['required']">
+                    phonenumber is required
+                </div>
+                <div *ngIf="phonenumber.errors['minlength']">
+                    phonenumber must be at least 10 characters
+                </div>
+                <div *ngIf="phonenumber.errors['maxlength']">
+                    phonenumber must not exceed 10 characters
+                </div>
+            </div>
+        </div>
+
+        <div class="inscriptionContainer__formContainer__form">
+            <label>Password :</label>
+            <input
+            type="password"
+            class="form-control"
+            name="password"
+            [(ngModel)]="form.password"
+            required
+            minlength="6"
+            maxlength="40"
+            #password="ngModel"
+            [ngClass]="{ 'is-invalid': inscript.submitted && password.errors }"
+            />
+            <div *ngIf="inscript.submitted && password.errors" class="invalid-feedback">
+            <div *ngIf="password.errors['required']">Password is required</div>
+            <div *ngIf="password.errors['minlength']">
+                Password must be at least 6 characters
+            </div>
+            <div *ngIf="password.errors['maxlength']">
+                Username must not exceed 40 characters
+            </div>
+            </div>
+        </div>
+        <!-- <div class="inscriptionContainer__formContainer__form">
+            <label>Confirm Password :</label>
+            <input
+              type="password"
+              class="form-control"
+              name="confirmPassword"
+              required
+              [(ngModel)]="form.confirmPassword"
+              #confirmPassword="ngModel"
+              [ngClass]="{ 'is-invalid': inscript.submitted && confirmPassword.errors }"
+            />
+            <div
+              *ngIf="inscript.submitted && confirmPassword.errors"
+              class="invalid-feedback"
+            >
+              <div *ngIf="confirmPassword.errors['required']">
+                Confirm Password is required
+              </div>
+              <div *ngIf="confirmPassword.errors['matching']">
+                Confirm Password does not match
+              </div>
+            </div>
+          </div> -->
+
+        <div class="inscriptionContainer__formContainer__formInput">
+            <button type="submit" [disabled]="form.valid" (click)="onSubmit()"  class="btn btn-primary">Register</button>
+            <button
+            type="button"
+            (click)="onReset(inscript)"
+            class="btn btn-warning float-right">
+            Reset
+            </button>
+        </div>
+    </form>
+    
+</div>
