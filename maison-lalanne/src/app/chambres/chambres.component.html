@@ -1,18 +1,26 @@
 
-<p>list-chambre works!</p>
-
-<div *ngIf='chambre' class="detailChambreContainer">
+<div *ngIf='chambre' class="detailChambreContainer" >
     <div class="detailChambreContainer__chambreContainer">
       <div class="detailChambreContainer__chambreContainer__image">
-        <img src="./assets/imgChambre/Chambre coquelicot.jpg" alt="coquelicot">
+        <!-- Utilisez mainImageUrl pour l'image principale -->
+        <img [src]="mainImageUrl" alt="chambre">
       </div>
-      <div class="card-stacked">
-        <div class="card-content">
-            <h3>{{ chambre.name }}</h3>
-            <p><small>{{ chambre.description }}</small></p>
-            <p>{{ chambre.service }}</p>
-            <h3>Prix de la chambre: {{chambre.price}}</h3>
+      <div class="detailChambreContainer__chambreContainer__description" >
+        <div class="detailChambreContainer__chambreContainer__description__detail">
+            <h3>{{ chambre?.name }}</h3>
+            <p><small>{{ chambre?.description }}</small></p>
+            <p>{{ chambre?.service }}</p>
+            <h3>Prix de la chambre: {{chambre?.price}}</h3>
         </div>
+      </div>
+      <h2>Photos de la chambre et salle de bain:</h2>
+      <div *ngIf="urls && urls.length > 0" class="detailChambreContainer__chambreContainer__contentPicture">
+        <div *ngFor="let url of urls" class="detailChambreContainer__chambreContainer__contentPicture__otherPicture">
+          <img [src]="url" alt="Image de la chambre" (click)="changeMainImage(url)">
+        </div>
+      </div>
+      <div class="detailChambreContainer__chambreContainer__button">
+        <button (click)="goReservation()">Reserver</button>
       </div>
     </div>
 </div>

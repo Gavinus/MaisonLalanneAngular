@@ -13,8 +13,6 @@ import { HttpClientModule } from '@angular/common/http';
   declarations: [
     ListChambreComponent,
     ChambresComponent,
-
-    // EditChambreComponent,
   ],
   imports: [
     //CommonModule à mettre dans les modules annexe et non app.module

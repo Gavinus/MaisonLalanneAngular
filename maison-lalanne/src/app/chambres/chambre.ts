@@ -4,6 +4,7 @@ export class Chambre {
     description: string;
     service: string;
     price: number;
+    picture: string;
     // infoPlace: number;
     // img: string;
 }
