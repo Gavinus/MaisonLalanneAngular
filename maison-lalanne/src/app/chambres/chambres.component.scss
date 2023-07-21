@@ -1,9 +1,66 @@
 .detailChambreContainer{
+    width: 90%;
+    margin: auto;
+    height: 100%;
     &__chambreContainer{
+        font-family: 'damion', cursive;
+        color: white;
+        background-color: rgba(62,111,143,1);
+        margin: 20% auto auto 0;
         &__image{
+            width: 100%;
+            height: 600px;
             img{
-                width: 35%;
+                width: 100%;
+                height: 100%;
             }
+        }
+        &__description{
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            margin: 3% 0;
+            &__detail{
+                width: 95%;
+                border: 1px solid white;
+                border-radius: 5px;
+                padding: 1%;
+            }
+        }
+        &__contentPicture{
+            width: 100%;
+            display: flex;
+            flex-direction: row;
+            align-items: center;
+            justify-content: space-around;
+            margin: 5% 0 2% 0;
+            &__otherPicture{
+                cursor: pointer;
+                width: 200px;
+                height: 150px;
+                img{
+                    width: 100%;
+                    height: 100%;
+                }
+            }
+        }
+        h2{
+            margin-left: 3%;
+        }
+        &__button{
+            width: 100%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            padding: 3% 0;
+            button{
+                width: 90px;
+                height: 28px;
+                border: 1px;
+                border-radius: 5px;
+                cursor: pointer;
+                font-family: 'damion', cursive;
+            } 
         }
     }
 }

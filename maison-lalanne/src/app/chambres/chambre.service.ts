@@ -6,7 +6,7 @@ import { Chambre } from "./chambre";
 @Injectable({providedIn: 'root'})
 export class ChambreService {
 
-    private chambreUrl = 'api/chambres';
+    //private chambreUrl = 'api/chambres';
     private urlchambre = 'http://localhost:8080/bedroom';
 
     constructor(private http: HttpClient) {}
@@ -22,6 +22,10 @@ export class ChambreService {
         return this.http.get<Chambre>(url);
     }
 
+    getBedroomUrls(bedroomId: number): Observable<string[]> {
+      const url = `${this.urlchambre}/${bedroomId}/allpictureById`;
+      return this.http.get<string[]>(url);
+    }
     
 
 
@@ -36,19 +40,19 @@ export class ChambreService {
     //     return this.http.get<Chambre>(url);
     // }  
     
-    updateChambre(chambre: Chambre) : Observable<Chambre> {
+    // updateChambre(chambre: Chambre) : Observable<Chambre> {
 
-        const httpOptions = {
-            headers: new HttpHeaders({
-              'Content-Type':  'application/json'
-            })
-          };
-        return this.http.put<Chambre>(this.chambreUrl, chambre, httpOptions);
-    }
+    //     const httpOptions = {
+    //         headers: new HttpHeaders({
+    //           'Content-Type':  'application/json'
+    //         })
+    //       };
+    //     return this.http.put<Chambre>(this.chambreUrl, chambre, httpOptions);
+    // }
 
-    deleteChambre(id: number): Observable<any> {
+    // deleteChambre(id: number): Observable<any> {
 
-        const url = `${this.chambreUrl}/${id}`;
-        return this.http.delete(url)
-    }
+    //     const url = `${this.chambreUrl}/${id}`;
+    //     return this.http.delete(url)
+    // }
 }

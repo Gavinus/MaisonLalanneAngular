@@ -1,7 +1,7 @@
 import { DatePipe } from "@angular/common";
 
 export class Reservation {
-   // id: number;
+    id: number;
     dateIn: Date;
     dateOut: Date;
 //nbDays: number;

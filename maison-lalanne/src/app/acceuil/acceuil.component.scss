@@ -5,13 +5,14 @@ body{
 }
 
 .acceuilContainer{
+    font-family: 'damion', cursive;
     display: flex;
     flex-direction: column;
     justify-content: center;
-    width: 100%;
-
+    width: 90%;
+    margin: auto;
     &__content{
-        margin-top: 15%;
+        margin-top: 20%;
         height: 818px;
         img{
             height: 100%;
@@ -85,7 +86,7 @@ body{
             img{
                 object-position: 50% 50%;
                 object-fit: cover;
-                width: 245px;
+                width: 100%;
                 height: 100%;
             }
         }
@@ -93,7 +94,7 @@ body{
 
     &__otherService{
         width: 100%;
-        height: 600px;
+        height: 500px;
         background-color: #3e6f8f;
         display: flex;
         justify-content: center;
@@ -104,9 +105,8 @@ body{
             margin: auto 2%;
             
             &__img{
-                    width: 80%;
                 img{
-                    width: 186px;
+                    width: 200px;
                     height: 209px;
                     object-fit: cover;
                     object-position: 50% 50%;

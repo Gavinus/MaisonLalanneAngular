@@ -35,6 +35,7 @@ export class ListChambreComponent implements OnInit{
 
   ngOnInit(): any{
     this._chambreService.getBedrooms().subscribe(data => {
+      console.log(data);
       this.chambres = data;
     });
 
@@ -52,31 +53,27 @@ export class ListChambreComponent implements OnInit{
     }
 
     //recuperer les dates des inputs
-    DateInEvent(event: any) {
-      console.log(event.target.value);
-    }
-    DateOutEvent(event: any) {
-      console.log(event.target.value);
-    }
-    onClick() {
-      this.changeFormat(this.dateIn, this.dateOut); 
-      console.log(this.newDateIn);
-      console.log(this.newDateOut);
-    }
+    // DateInEvent(event: any) {
+    //   console.log(event.target.value);
+    // }
+    // DateOutEvent(event: any) {
+    //   console.log(event.target.value);
+    // }
+    // onClick() {
+    //   this.changeFormat(this.dateIn, this.dateOut); 
+    //   console.log(this.newDateIn);
+    //   console.log(this.newDateOut);
+    // }
 
     //DatePipe pour changer le format 
-    changeFormat(dateIn: any, dateOut: any){
-      let ChangedFormatIn = this.pipe.transform(dateIn, 'dd/MM/YYYY');
-      this.newDateIn = ChangedFormatIn;
+    // changeFormat(dateIn: any, dateOut: any){
+    //   let ChangedFormatIn = this.pipe.transform(dateIn, 'dd/MM/YYYY');
+    //   this.newDateIn = ChangedFormatIn;
 
-      let ChangedFormatOut = this.pipe.transform(dateOut, 'dd/MM/YYYY');
-      this.newDateOut = ChangedFormatOut;
-    }
-
-
-
-    // selectChambre(data: []) {
-    //   this.router.navigate(['/bedroom/allbedroom', data]);
+    //   let ChangedFormatOut = this.pipe.transform(dateOut, 'dd/MM/YYYY');
+    //   this.newDateOut = ChangedFormatOut;
     // }
+
+
 
   }
