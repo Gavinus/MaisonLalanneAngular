@@ -37,7 +37,7 @@
     &__link{
         display: grid;
         grid-template-columns: 1.5fr 1fr 2fr;
-        grid-template-rows: 3fr 4fr repeat(2, 3fr) 4fr;
+        grid-template-rows: 3fr 4fr repeat(2, 2fr) 4fr;
         grid-column-gap: 6px;
         grid-row-gap: 6px;
         &__img1 { 
