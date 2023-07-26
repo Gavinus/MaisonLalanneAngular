@@ -11,7 +11,6 @@ const appRoutes: Routes = [
         path:'chambre',
         children: [
             { path: 'all', component: ListChambreComponent},
-            // { path: 'edit/:id', component: EditChambreComponent, canActivate: [AuthGuardService] },
             { path: ':id', component: ChambresComponent },
         ],
     }

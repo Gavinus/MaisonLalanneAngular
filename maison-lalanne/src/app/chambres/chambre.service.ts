@@ -27,21 +27,8 @@ export class ChambreService {
       return this.http.get<string[]>(url);
     }
     
-
-
-  //getChambres() : Observable<Chambre[]> {
-    //    return this.http.get<Chambre[]>(this.chambreUrl);
-    // }
-
-//  getChambreById(id: number) : Observable<Chambre> {
-    //     console.log(this.urlchambre);
-    //     const url = `${this.chambreUrl}/${id}`;
-        
-    //     return this.http.get<Chambre>(url);
-    // }  
-    
+    //si on doit modif des chambres
     // updateChambre(chambre: Chambre) : Observable<Chambre> {
-
     //     const httpOptions = {
     //         headers: new HttpHeaders({
     //           'Content-Type':  'application/json'
@@ -51,7 +38,6 @@ export class ChambreService {
     // }
 
     // deleteChambre(id: number): Observable<any> {
-
     //     const url = `${this.chambreUrl}/${id}`;
     //     return this.http.delete(url)
     // }

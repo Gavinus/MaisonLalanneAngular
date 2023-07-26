@@ -5,10 +5,7 @@ import { AppComponent } from './app.component';
 import { AcceuilComponent } from './acceuil/acceuil.component';
 import { TourismeComponent } from './tourisme/tourisme.component';
 import { DecouverteComponent } from './decouverte/decouverte.component';
-import { ServiceComponent } from './service/service.component';
 import { HttpClientModule } from '@angular/common/http';
-// import { HttpClientInMemoryWebApiModule } from 'angular-in-memory-web-api';
-// import { InMemoryDataService } from './chambres/in-memory-data-chambre.service';
 import { ChambreModule } from './chambres/chambre.module';
 import { PageNotFoundComponent } from './page-not-found/page-not-found.component';
 import { FormsModule } from '@angular/forms';
@@ -19,7 +16,6 @@ import { AuthGuardService } from './auth-guard.service';
 import { AuthService } from './auth.service';
 import { InscriptionFormComponent } from './inscription-form/inscription-form.component';
 import { LoginRoutingModule } from './login/login-routing.module';
-import { httpInterceptorProviders } from './helper/http.interceptor';
 import { MatchPasswordDirective } from './login/directives/match-password.directive';
 import { DateInputConverter } from './login/directives/date-input.directive';
 import { ReservationsimpleFormComponent } from './reservationsimple-form/reservationsimple-form.component';
@@ -30,7 +26,6 @@ import { ReservationsimpleFormComponent } from './reservationsimple-form/reserva
     AcceuilComponent,
     TourismeComponent,
     DecouverteComponent,
-    ServiceComponent,
     PageNotFoundComponent,
     ReservationsimpleFormComponent,
     ReservationFormComponent,
@@ -42,23 +37,19 @@ import { ReservationsimpleFormComponent } from './reservationsimple-form/reserva
   ],
   imports: [
     BrowserModule,
-    // !!!!!!! WARNING ORDER OF MODULE !!!!!!! 1.5j de perdu! -_-
+    // !!!!!!! WARNING ORDER OF MODULE !!!!!!!
     ChambreModule,
     LoginRoutingModule,
     AppRoutingModule,
-    //import de l'api virtuel in-memory-data.service
     HttpClientModule,
+    //import de l'api virtuel in-memory-data.service
     //simulation de l'api
     //HttpClientInMemoryWebApiModule.forRoot(InMemoryDataService, { dataEncapsulation: false}),
     FormsModule,
   ],
   providers: [
     ReservationService,
-    
     AuthGuardService,
-    //testlogin
-    httpInterceptorProviders,
-
     AuthService
   ],
   bootstrap: [AppComponent]
