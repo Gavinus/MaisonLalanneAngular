@@ -13,7 +13,7 @@
                 <!-- namecontainer -->
                 <div class="reservationSimpleForm__bodyContainer__contentForm__formContainer__form">
                     <label for="name">Prénom:</label>
-                    <input type="text" id="name" [(ngModel)]="form.name" name="name" #name required [ngClass]="{ 'is-invalid': reservationsimpleform.submitted && 'name invalid' }">
+                    <input type="text" id="name" [(ngModel)]="form.name" name="name" #name required minlength="3" [ngClass]="{ 'is-invalid': reservationsimpleform.submitted && 'name invalid' }">
                     <div *ngIf="'name invalid' && reservationsimpleform.submitted" class="reservationSimpleForm__bodyContainer__contentForm__formContainer__form__formInput">
                         name is required!
                     </div>
@@ -32,7 +32,7 @@
                 <!-- emailcontainer -->
                 <div class="reservationSimpleForm__bodyContainer__contentForm__formContainer__form">
                     <label for="email">Email:</label>
-                    <input type="email" id="email" [(ngModel)]="form.email" name="email" #email required [ngClass]="{ 'is-invalid': reservationsimpleform.submitted && 'email invalid' }">
+                    <input type="email" id="email" [(ngModel)]="form.email" name="email" #email required minlength="10" [ngClass]="{ 'is-invalid': reservationsimpleform.submitted && 'email invalid' }">
                     <div *ngIf="'email invalid' && reservationsimpleform.submitted" class="reservationSimpleForm__bodyContainer__contentForm__formContainer__form__formInput">
                         email is required!
                     </div>
@@ -40,7 +40,7 @@
                 <!-- phonenumbercontainer -->
                 <div class="reservationSimpleForm__bodyContainer__contentForm__formContainer__form">
                     <label for="phonenumber">Telephone:</label>
-                    <input type="text" id="phonenumber" [(ngModel)]="form.phonenumber" name="phonenumber" #phonenumber="ngModel" required minlength="10" maxlength="10" [ngClass]="{ 'is-invalid': reservationsimpleform.submitted && 'phonenumber invalid' }">
+                    <input type="text" id="phonenumber" [(ngModel)]="form.phonenumber" name="phonenumber" #phonenumber="ngModel" required minlength="10" maxlength="12" [ngClass]="{ 'is-invalid': reservationsimpleform.submitted && 'phonenumber invalid' }">
                     <div *ngIf="'phonenumber invalid' && reservationsimpleform.submitted" class="reservationSimpleForm__bodyContainer__contentForm__formContainer__form__formInput">
                         phonenumber is required!
                     </div>
@@ -104,24 +104,19 @@
                     et le DateInEvent pour set au changement -->
                     <input type="date" id="datein"
                     [(ngModel)]="form.datein" name="datein" >
-                    <!-- <div [hidden]="form.datein.valid" class="reservationSimpleForm__bodyContainer__formContainer__form__formInput">
-                        vous devez entrer une date d'entrée
-                    </div> -->
                 </div>
                 <!-- dateOutcontainer -->
                 <div class="reservationSimpleForm__bodyContainer__contentForm__formContainer__form">
                     <label for="dateout">Date de sortie du séjour:</label>
                     <input type="date" name="dateout" id="dateout" 
                     [(ngModel)]="form.dateout" >
-                    <!-- <div [hidden]="form.dateout.valid" class="reservationSimpleForm__bodyContainer__formContainer__form__formInput">
-                        vous devez entrer une date de sortie
-                    </div> -->
                 </div>
                 <!-- Submit button -->
                     <div class="divider"></div>
                     <div class="reservationSimpleForm__bodyContainer__contentForm__form">
                     <button type="submit" (click)="onSubmit()"  class="waves-effect waves-light btn" [disabled]="!reservationsimpleform.form.valid">
                     Valider</button>
+                    <!-- <div *ngIf="form.valid">formulaire validé</div> -->
                 </div>
             </form>
             <div class="reservationSimpleForm__bodyContainer__contentForm__imgbedroomContainer">
