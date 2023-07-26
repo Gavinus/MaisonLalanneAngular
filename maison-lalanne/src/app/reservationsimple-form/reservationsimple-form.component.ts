@@ -1,4 +1,4 @@
-import { Component, Input, OnInit } from '@angular/core';
+import { Component,  OnInit } from '@angular/core';
 import { AuthService } from '../auth.service';
 import { Reservationsimple } from './reservationsimple';
 import { ChambreService } from '../chambres/chambre.service';
@@ -46,13 +46,7 @@ export class ReservationsimpleFormComponent implements OnInit{
   ngOnInit(): void {
     this._chambreService.getBedrooms().subscribe(data => {
       this.chambres = data;
-    }
-  
-    // ,
-    // (error) => {
-    //   console.error('Erreur lors de la récupération des chambres disponibles :', error);
-    // }
-    );
+    });
   }
 
   onSubmit(): void {
@@ -62,13 +56,9 @@ export class ReservationsimpleFormComponent implements OnInit{
         datein, dateout, address, city, addressnumber,
         postalcode, bedroom
       } = this.form;
-      // let reservationsimple = this.form;
-
-      // this.authService.registerReserv(reservationsimple).subscribe({
       this.authService.registerReservtest(name, lastname, email, phonenumber, datein, dateout, address, city, addressnumber , postalcode, bedroom).subscribe({
         next: data => {
           console.log('Observation data: ' , name, lastname, email, phonenumber, datein, dateout, address, city, addressnumber , postalcode, bedroom)
-          // reservationsimple = data;
           this.reservationsimple = data;
           console.log('subscribe lancé + data: ' , data)
         },

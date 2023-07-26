@@ -23,9 +23,6 @@ export class ReservationService {
         return this.http.get<Reservationsimple>(url);
     }   
     
-    
-
-
     postReservationUser(reservationsimple: Reservationsimple) : Observable<Reservationsimple> {
 
         const httpOptions = {

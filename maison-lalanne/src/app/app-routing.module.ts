@@ -7,26 +7,22 @@ import { DecouverteComponent } from './decouverte/decouverte.component';
 import { InscriptionFormComponent } from './inscription-form/inscription-form.component';
 import { LoginComponent } from './login/login.component';
 import { PageNotFoundComponent } from './page-not-found/page-not-found.component';
-import { ReservationFormComponent } from './reservation-form/reservation-form.component';
-import { ServiceComponent } from './service/service.component';
+// import { ReservationFormComponent } from './reservation-form/reservation-form.component';
 import { TourismeComponent } from './tourisme/tourisme.component';
 import { ReservationsimpleFormComponent } from './reservationsimple-form/reservationsimple-form.component';
 
 const appRoutes: Routes = [
-  // {path: "", redirectTo: 'acceuil', pathMatch: 'full'},
   {path: "", redirectTo: 'acceuil', pathMatch: 'full'},
   {path: 'acceuil', component: AcceuilComponent},
   {path: 'chambre/all', component: ListChambreComponent},
   {path: 'decouverte', component: DecouverteComponent},
-  // {path: 'reservation', component: ReservationsimpleFormComponent, canActivate: [AuthGuardService]},
+  // Pour la V2
+  // {path: 'reservation', component: ReservationFormComponent, canActivate: [AuthGuardService]},
   {path: 'reservation', component: ReservationsimpleFormComponent},
-
   {path: 'login', component: LoginComponent},
   {path: 'inscription', component: InscriptionFormComponent},
-  {path: 'service', component: ServiceComponent},
   {path: 'tourisme', component: TourismeComponent},
   {path: '**', component: PageNotFoundComponent}
-
 ];
 
 @NgModule({

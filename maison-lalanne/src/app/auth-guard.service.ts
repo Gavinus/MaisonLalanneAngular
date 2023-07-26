@@ -1,11 +1,10 @@
 import { Injectable } from "@angular/core";
 import { ActivatedRouteSnapshot, CanActivate, Router, RouterStateSnapshot, UrlTree } from "@angular/router";
 import { AuthService } from "./auth.service";
-import { StorageService } from "./login/storage.service";
 
 @Injectable()
 export class AuthGuardService implements CanActivate {
-    constructor(private storageService: StorageService,private authService: AuthService, private router: Router) { }
+    constructor(private authService: AuthService, private router: Router) { }
 
     canActivate(route: ActivatedRouteSnapshot, state: RouterStateSnapshot): boolean {
         console.log("passe dans le canActivate")

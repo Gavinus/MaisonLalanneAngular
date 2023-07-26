@@ -8,6 +8,7 @@ import {
 
 import Validation from '../utils/validation';
 
+// Pour le userRegister
 @Directive({
   selector: '[appMatchPassword]',
   providers: [

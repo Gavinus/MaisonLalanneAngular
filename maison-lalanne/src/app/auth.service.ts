@@ -31,7 +31,7 @@ export class AuthService {
 
   login(email: string, password: string): Observable<User> {
     console.log("fait bien la requete");
-    this.isLoggedIn =true;
+    this.isLoggedIn = true;
     console.log(this.isLoggedIn);
     return this.http.post<User>(this.urluser + '/userconnect',{"email": email,"password": password},
         httpOptions,
@@ -85,14 +85,6 @@ export class AuthService {
   logout() {
       this.isLoggedIn = false;
   }
-
-
-  // login(email: string, password: string) : Observable<User> {
-  //     // let isLoggedIn = (this.email = email, this.password = password);
-  //     console.log(this.urluser + "/userconnect");
-  //     // return this.http.post<User[]>(this.urluser + "/userconnect", isLoggedIn,{withCredentials: true},{httpOptions});
-  //     return this.http.post<User>(this.urluser + '/userconnect', {"email": email, "password": password}, httpOptions); 
-//   }
 }
 
 

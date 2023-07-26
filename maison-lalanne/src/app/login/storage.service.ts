@@ -4,6 +4,8 @@ import { map, Observable, of } from 'rxjs';
 import { User } from './login-user';
 
 
+// A voir pour la V2
+
 
 @Injectable({
   providedIn: 'root'
